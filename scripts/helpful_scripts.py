@@ -1,8 +1,12 @@
 from brownie import network, config, accounts
 
 
-FORKED_LOCAL_ENVIRONMETNS = ["mainnet-fork", "mainnet-fork-dev"]
-LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local"]
+LOCAL_BLOCKCHAIN_ENVIRONMENTS = [
+    "development",
+    "ganache-local",
+    "mainnet-fork",
+    "mainnet-fork-dev",
+]
 
 
 def get_account(index=None, id=None):
