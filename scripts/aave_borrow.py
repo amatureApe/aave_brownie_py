@@ -22,6 +22,17 @@ def main():
     print("Deposited")
 
     borrowable_eth, total_debt = get_borrowable_data(lending_pool, account)
+    print("Let's borrow!")
+    dai_eth_price = get_asset_price(
+        config["networks"][network.show_active()]["dai_eth_price_feed"]
+    )
+
+
+def get_asset_price(price_feed_address):
+    dai_eth_price_feed = interface.AggregatorV3Interface(price_feed_address)
+    latest_price = dai_eth_price_feed.latestRoundData()[1]
+    print(f"The DAI/ETH price is {latest_price}")
+    return float(latest_price)
 
 
 def get_borrowable_data(lending_pool, account):
